@@ -23,13 +23,15 @@ Object {
     id: device
 
     //some kind of enum, by screen size
-    property int type
+    property int type: desktop
+
     readonly property int phone: 0
     readonly property int phablet: 1
     readonly property int tablet: 2
     readonly property int desktop: 3
     readonly property int tv: 4
     readonly property int unknown: 5 //it's either bigger than tv or smaller than phone
+    
     readonly property string name: {
     	switch (type) {
     		case 0:
