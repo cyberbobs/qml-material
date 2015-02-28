@@ -39,13 +39,13 @@ ColumnLayout {
                     color: index == 0 ? Theme.light.textColor : Theme.dark.textColor
                 }
 
-                Checkbox {
+                CheckBox {
                     checked: true
                     text: "On"
                     darkBackground: index == 1
                 }
 
-                Checkbox {
+                CheckBox {
                     checked: true
                     enabled: false
                     text: "Disabled"
@@ -57,12 +57,12 @@ ColumnLayout {
                     color: index == 0 ? Theme.light.textColor : Theme.dark.textColor
                 }
 
-                Checkbox {
+                CheckBox {
                     text: "Off"
                     darkBackground: index == 1
                 }
 
-                Checkbox {
+                CheckBox {
                     text: "Disabled"
                     enabled: false
                     darkBackground: index == 1
