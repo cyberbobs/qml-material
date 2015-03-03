@@ -24,6 +24,8 @@ ButtonStyle {
     background: View {
         id: background
 
+        implicitHeight: units.dp(36)
+
         radius: units.dp(2)
 
         elevation: {
@@ -60,11 +62,12 @@ ButtonStyle {
         }
     }
     label: Item {
-        implicitHeight: Math.max(units.dp(36), label.height + units.dp(16))
+        implicitHeight: label.height
+        
         implicitWidth: control.hasOwnProperty("context") && control.context == "dialog"
                 ? Math.max(units.dp(64), label.width + units.dp(16))
                 : Math.max(units.dp(88), label.width + units.dp(32))
-
+        
         Label {
             id: label
             anchors.centerIn: parent
