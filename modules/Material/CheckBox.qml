@@ -43,7 +43,9 @@ Controls.CheckBox {
 
         width: units.dp(54)
         height: units.dp(54)
-        color: checkBox.checked ? Theme.alpha(checkBox.color, 0.20) : Qt.rgba(0,0,0,0.1)
+        color: checkBox.checked ? Theme.alpha(checkBox.color, 0.20) 
+                                : checkBox.darkBackground ? Qt.rgba(1,1,1,0.1)
+                                                          : Qt.rgba(0,0,0,0.1)
         enabled: checkBox.enabled
 
         circular: true
