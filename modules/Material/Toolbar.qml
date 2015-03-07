@@ -31,16 +31,16 @@ View {
 
     opacity: page && page.actionBar.hidden ? 0 : 1
 
-    backgroundColor: page && page.actionBar.backgroundColor ? Qt.darker(page.actionBar.backgroundColor,1).a == 0
-                                                              ? page.color : page.actionBar.backgroundColor
-                                                            : Theme.primaryColor
+    backgroundColor: page ? page.actionBar.backgroundColor.a == 0 
+                            ? page.backgroundColor : page.actionBar.backgroundColor
+                          : Theme.primaryColor
 
     implicitHeight: Device.type == Device.phone ? units.dp(48)
                                                 : Device.type == Device.tablet ? units.dp(56)
                                                                                : units.dp(64)
     height: targetHeight
 
-    elevation: backgroundColor == page.color ? 0 : page.actionBar.elevation
+    elevation: backgroundColor == page.backgroundColor ? 0 : page.actionBar.elevation
 
     fullWidth: true
 
@@ -239,6 +239,7 @@ View {
             name: "navigation/close"
             color: Theme.lightDark(toolbar.backgroundColor, Theme.light.textColor,
                 Theme.dark.textColor)
+            onClicked: Qt.quit()
         }
     }
 
@@ -249,6 +250,7 @@ View {
         visible: tabs.length > 0
 
         tabs: page ? page.tabs : []
+        darkBackground: Theme.isDarkColor(toolbar.backgroundColor)
 
         anchors {
             left: parent.left

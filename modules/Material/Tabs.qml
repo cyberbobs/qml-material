@@ -27,8 +27,10 @@ Row {
 
     property int selectedIndex: 0
 
-    property color color: Theme.dark.textColor
-    property color highlight: Theme.dark.accentColor
+    property bool darkBackground
+
+    property color color: darkBackground ? Theme.dark.textColor : Theme.light.textColor
+    property color highlight: darkBackground ? Theme.dark.accentColor : Theme.light.accentColor
 
     Repeater {
         id: repeater
@@ -81,14 +83,14 @@ Row {
                 Icon {
                     anchors.verticalCenter: parent.verticalCenter
                     name: modelData.hasOwnProperty("icon") ? modelData.icon : ""
-                    color: Theme.dark.iconColor
+                    color: darkBackground ? Theme.dark.iconColor : Theme.light.iconColor
                     visible: name != ""
                 }
 
                 Label {
                     id: label
                     text: modelData.hasOwnProperty("text") ? modelData.text : modelData
-                    color: Theme.dark.textColor
+                    color: darkBackground ? Theme.dark.textColor : Theme.light.textColor
                     style: "body2"
                     anchors.verticalCenter: parent.verticalCenter
                 }
